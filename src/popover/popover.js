@@ -14,6 +14,19 @@ angular.module( 'ui.bootstrap.popover', [ 'ui.bootstrap.tooltip' ] )
   };
 })
 
+.directive( 'popoverHtmlUnsafePopup', function () {
+  return {
+    restrict: 'EA',
+    replace: true,
+    scope: { title: '@', content: '@', placement: '@', animation: '&', isOpen: '&' },
+    templateUrl: 'template/popover/popover-html-unsafe.html'
+  };
+})
+
 .directive( 'popover', [ '$tooltip', function ( $tooltip ) {
   return $tooltip( 'popover', 'popover', 'click' );
+}])
+
+.directive( 'popoverHtmlUnsafe', [ '$tooltip', function ( $tooltip ) {
+  return $tooltip( 'popoverHtmlUnsafe', 'popover', 'click' );
 }]);
